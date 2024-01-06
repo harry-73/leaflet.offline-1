@@ -79,7 +79,9 @@ export async function getStorageInfo(urlTemplate) {
  * @return {Promise<blob>}
  */
 export async function downloadTile(tileUrl) {
-  return fetch(tileUrl).then((response) => {
+  return fetch(tileUrl, { method: 'GET', 
+                    mode: 'no-cors', 
+                    credentials: 'include' }).then((response) => {
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.statusText}`);
     }
