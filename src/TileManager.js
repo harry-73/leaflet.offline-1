@@ -82,6 +82,7 @@ export async function downloadTile(tileUrl) {
   return fetch(tileUrl, { method: 'GET', 
                     mode: 'no-cors', 
                     credentials: 'include' }).then((response) => {
+    console.log('Fetch Response:', response);
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.statusText}`);
     }
